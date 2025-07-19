@@ -15,7 +15,7 @@ export class TaskController {
   constructor(private readonly taskService: TaskService) {}
 
   @Post()
-  async createTask(task: Task): Promise<Task> {
+  async createTask(@Body() task: Task): Promise<Task> {
     return this.taskService.createTask(task);
   }
 

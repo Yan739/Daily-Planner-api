@@ -11,10 +11,10 @@ export class Task {
   @Column({ nullable: true })
   description: string;
 
-  @Column()
+  @Column({ nullable: true })
   date: string;
 
-  @Column()
+  @Column({ nullable: true })
   time: string;
 
   @Column({ default: 'pending' })
