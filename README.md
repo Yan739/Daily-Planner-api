@@ -4,7 +4,6 @@
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS">
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/TypeORM-FE0803?style=for-the-badge&logo=typeorm&logoColor=white" alt="TypeORM">
-  <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" alt="JWT">
   <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger">
 </div>
 
@@ -28,7 +27,6 @@ Ce projet a pour objectif de fournir une **API REST** sécurisée, claire et ext
 - **MySQL** - Base de données relationnelle
 - **TypeORM** - ORM pour TypeScript et JavaScript
 - **Swagger** - Documentation interactive de l'API
-- **OpenWeatherMap** - API météo intégrée
 
 ### Structure du projet (hexagonale)
 
