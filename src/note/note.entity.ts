@@ -1,6 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity()
+@Entity('notes')
 export class Note {
   @PrimaryGeneratedColumn()
   id: number;
@@ -8,15 +14,24 @@ export class Note {
   @Column()
   title: string;
 
-  @Column({ nullable: true })
-  description: string;
+  @Column('text')
+  content: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'date' })
   date: string;
 
   @Column({ nullable: true })
-  time: string;
+  category: string;
 
-  @Column({ default: 'pending' })
-  status: string;
+  @Column({ default: false })
+  isImportant: boolean;
+
+  @Column({ default: true })
+  isActive: boolean;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

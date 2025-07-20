@@ -1,22 +1,15 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { GoalService } from './goal.service';
 import { Goal } from './goal.entity';
+import { CreateGoalDto, UpdateGoalDto } from './dto/goal.dto';
 
 @Controller('goals')
 export class GoalController {
   constructor(private readonly goalService: GoalService) {}
 
   @Post()
-  async createGoal(@Body() goal: Goal): Promise<Goal> {
-    return this.goalService.createGoal(goal);
+  async createGoal(@Body() createGoalDto: CreateGoalDto): Promise<Goal> {
+    return this.goalService.createGoal(createGoalDto);
   }
 
   @Get()
@@ -30,11 +23,8 @@ export class GoalController {
   }
 
   @Put(':id')
-  async updateGoal(
-    @Param('id') id: number,
-    @Body() goal: Partial<Goal>,
-  ): Promise<Goal> {
-    return this.goalService.updateGoal(id, goal);
+  async updateGoal(@Param('id') id: number, @Body() updateGoalDto: UpdateGoalDto): Promise<Goal> {
+    return this.goalService.updateGoal(id, updateGoalDto);
   }
 
   @Delete(':id')

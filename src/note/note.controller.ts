@@ -1,22 +1,15 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { NoteService } from './note.service';
 import { Note } from './note.entity';
+import { CreateNoteDto, UpdateNoteDto } from './dto/note.dto';
 
 @Controller('notes')
 export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
   @Post()
-  async createNote(@Body() note: Note): Promise<Note> {
-    return this.noteService.createNote(note);
+  async createNote(@Body() createNoteDto: CreateNoteDto): Promise<Note> {
+    return this.noteService.createNote(createNoteDto);
   }
 
   @Get()
@@ -30,11 +23,8 @@ export class NoteController {
   }
 
   @Put(':id')
-  async updateNote(
-    @Param('id') id: number,
-    @Body() note: Partial<Note>,
-  ): Promise<Note> {
-    return this.noteService.updateNote(id, note);
+  async updateNote(@Param('id') id: number, @Body() updateNoteDto: UpdateNoteDto): Promise<Note> {
+    return this.noteService.updateNote(id, updateNoteDto);
   }
 
   @Delete(':id')

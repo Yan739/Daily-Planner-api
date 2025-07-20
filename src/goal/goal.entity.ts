@@ -1,6 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
-@Entity()
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+@Entity('goals')
 export class Goal {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,12 +16,18 @@ export class Goal {
   @Column({ nullable: true })
   description: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'date' })
   date: string;
 
-  @Column({ nullable: true })
-  time: string;
+  @Column({ default: false })
+  isAchieved: boolean;
 
-  @Column({ default: 'pending' })
-  status: string;
+  @Column({ default: 1 }) // Priority level (1-5)
+  priority: number;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

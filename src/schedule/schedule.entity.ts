@@ -1,6 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity()
+@Entity('schedules')
 export class Schedule {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,12 +17,24 @@ export class Schedule {
   @Column({ nullable: true })
   description: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'date' })
   date: string;
 
-  @Column({ nullable: true })
-  time: string;
+  @Column({ type: 'time' })
+  startTime: string;
 
-  @Column({ default: 'pending' })
+  @Column({ type: 'time', nullable: true })
+  endTime: string;
+
+  @Column({ default: 'scheduled' }) // scheduled, in-progress, completed, cancelled
   status: string;
+
+  @Column({ nullable: true })
+  location: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
