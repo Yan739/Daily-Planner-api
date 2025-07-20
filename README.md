@@ -18,7 +18,6 @@ Ce projet a pour objectif de fournir une **API REST** sécurisée, claire et ext
 
 - Planifier sa journée de 06h00 à 21h00
 - Gérer des tâches, objectifs, notes et plannings
-- Consulter la météo quotidienne via une API tierce (OpenWeatherMap)
 - Interagir avec une interface web ou mobile
 
 ## Architecture technique
@@ -28,7 +27,6 @@ Ce projet a pour objectif de fournir une **API REST** sécurisée, claire et ext
 - **NestJS** - Framework Node.js modulaire
 - **MySQL** - Base de données relationnelle
 - **TypeORM** - ORM pour TypeScript et JavaScript
-- **JWT** - Authentification sécurisée
 - **Swagger** - Documentation interactive de l'API
 - **OpenWeatherMap** - API météo intégrée
 
@@ -37,14 +35,10 @@ Ce projet a pour objectif de fournir une **API REST** sécurisée, claire et ext
 ```
 src/
 ├── modules/
-│   ├── auth/          # Authentification (JWT, stratégies, guards)
-│   ├── users/         # Gestion des utilisateurs
 │   ├── tasks/         # Gestion des tâches
 │   ├── schedules/     # Emplois du temps (planning horaire)
 │   ├── goals/         # Objectifs journaliers
-│   ├── notes/         # Notes personnelles
-│   ├── weather/       # Appel à l'API météo externe
-│   └── shared/        # Modules réutilisables
+│   └── notes/         # Notes personnelles
 ├── core/
 ├── usecases/          # Logique métier (Application Layer)
 ├── services/          # Services internes du domaine
@@ -90,16 +84,9 @@ Créez un fichier `.env` à la racine du projet :
 # Base de données
 DB_HOST=localhost
 DB_PORT=3306
-DB_USERNAME=root
+DB_USERNAME=nomdutilisateur
 DB_PASSWORD=motdepasse
 DB_NAME=daily_planner
-
-# Authentification JWT
-JWT_SECRET=jwtsecretkey
-JWT_EXPIRATION=3600s
-
-# API météo (OpenWeatherMap)
-WEATHER_API_KEY=votre_cle_api
 
 # Port de l'application
 PORT=3000
@@ -142,7 +129,6 @@ npm run format
 
 ## Fonctionnalités à venir
 
-- Intégration complète d'OpenWeatherMap
 - Notifications par e-mail ou push
 - Vue hebdomadaire du planning
 - Gestion multi-utilisateur avec rôles
