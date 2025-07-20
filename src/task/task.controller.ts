@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, NotFoundException, ParseIntPipe } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { Task } from './task.entity';
 import { CreateTaskDto, UpdateTaskDto } from './dto/task.dto';
@@ -18,17 +18,21 @@ export class TaskController {
   }
 
   @Get(':id')
-  async findTaskById(@Param('id') id: number): Promise<Task | null> {
-    return this.taskService.findTaskById(id);
+  async findTaskById(@Param('id', ParseIntPipe) id: number): Promise<Task | null> {
+    const task = await this.taskService.findTaskById(id);
+    if (!task) {
+      throw new NotFoundException(`Task with ID ${id} not found`);
+    }
+    return task;
   }
 
   @Put(':id')
-  async updateTask(@Param('id') id: number, @Body() updateTaskDto: UpdateTaskDto): Promise<Task> {
+  async updateTask(@Param('id', ParseIntPipe) id: number, @Body() updateTaskDto: UpdateTaskDto): Promise<Task> {
     return this.taskService.updateTask(id, updateTaskDto);
   }
 
   @Delete(':id')
-  async deleteTask(@Param('id') id: number): Promise<void> {
+  async deleteTask(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.taskService.deleteTask(id);
   }
 }

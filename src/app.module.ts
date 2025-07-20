@@ -5,6 +5,8 @@ import { TaskModule } from './task/task.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { GoalModule } from './goal/goal.module';
+import { ScheduleModule } from './schedule/schedule.module';
+import { NoteModule } from './note/note.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { GoalModule } from './goal/goal.module';
     }),
     TaskModule,
     GoalModule,
+    ScheduleModule,
+    NoteModule,
   ],
   controllers: [AppController],
   providers: [AppService],

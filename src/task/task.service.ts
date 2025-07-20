@@ -11,11 +11,9 @@ export class TaskService {
   ) {}
 
   async createTask(taskData: Partial<Task>): Promise<Task> {
-    // Validate required fields
     if (!taskData.title || !taskData.date) {
       throw new Error('Missing required fields: title or date');
     }
-    // Set defaults for optional fields
     const task: Partial<Task> = {
       title: taskData.title,
       description: taskData.description ?? undefined,
@@ -32,11 +30,10 @@ export class TaskService {
   }
 
   async findTaskById(id: number): Promise<Task | null> {
-    return this.taskRepository.findOneBy({ id });
+    return this.taskRepository.findOne({ where: { id } });
   }
 
   async updateTask(id: number, taskData: Partial<Task>): Promise<Task> {
-    // Only update fields that exist in the entity
     const updateFields: Partial<Task> = {};
     if (taskData.title !== undefined) {
       updateFields.title = taskData.title;
