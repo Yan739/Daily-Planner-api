@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TaskModule } from './task/task.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { GoalModule } from './goal/goal.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: true,
     }),
     TaskModule,
+    GoalModule,
   ],
   controllers: [AppController],
   providers: [AppService],
