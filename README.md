@@ -9,101 +9,101 @@
 
 ## Description
 
-**Daily Planner API** est un backend développé en **NestJS** et structuré selon les principes de la **clean architecture** (hexagonale). Il permet à un utilisateur de planifier sa journée, gérer des tâches, des objectifs, des notes, un planning horaire, et de consulter la météo via une API externe.
+**Daily Planner API** is a backend developed in **NestJS** and structured according to **clean architecture** (hexagonal) principles. It allows users to plan their day, manage tasks, goals, notes, hourly schedules, and check weather through an external API.
 
-## Objectif du projet
+## Project Objective
 
-Ce projet a pour objectif de fournir une **API REST** sécurisée, claire et extensible qui permet à un utilisateur de :
+This project aims to provide a **secure, clear, and extensible REST API** that allows users to:
 
-- Planifier sa journée de 06h00 à 21h00
-- Gérer des tâches, objectifs, notes et plannings
-- Interagir avec une interface web ou mobile
+- Plan their day from 6:00 AM to 9:00 PM
+- Manage tasks, goals, notes, and schedules
+- Interact with web or mobile interfaces
 
-## Architecture technique
+## Technical Architecture
 
-### Technologies utilisées
+### Technologies Used
 
-- **NestJS** - Framework Node.js modulaire
-- **MySQL** - Base de données relationnelle
-- **TypeORM** - ORM pour TypeScript et JavaScript
-- **Swagger** - Documentation interactive de l'API
+- **NestJS** - Modular Node.js framework
+- **MySQL** - Relational database
+- **TypeORM** - ORM for TypeScript and JavaScript
+- **Swagger** - Interactive API documentation
 
-### Structure du projet (hexagonale)
+### Project Structure (Hexagonal)
 
 ```
 src/
 ├── modules/
-│   ├── tasks/         # Gestion des tâches
-│   ├── schedules/     # Emplois du temps (planning horaire)
-│   ├── goals/         # Objectifs journaliers
-│   └── notes/         # Notes personnelles
+│   ├── tasks/         # Task management
+│   ├── schedules/     # Time schedules (hourly planning)
+│   ├── goals/         # Daily goals
+│   └── notes/         # Personal notes
 ├── core/
-├── usecases/          # Logique métier (Application Layer)
-├── services/          # Services internes du domaine
-├── repositories/      # Interfaces des repositories (Domain Layer)
-└── infrastructure/    # Implémentation des repositories (MySQL)
-├── config/            # Configuration globale (env, base de données)
-├── main.ts           # Point d'entrée de l'application
-└── app.module.ts     # Module racine de l'application
+├── usecases/          # Business logic (Application Layer)
+├── services/          # Internal domain services
+├── repositories/      # Repository interfaces (Domain Layer)
+└── infrastructure/    # Repository implementations (MySQL)
+├── config/            # Global configuration (env, database)
+├── main.ts           # Application entry point
+└── app.module.ts     # Root application module
 ```
 
 ## Installation
 
-### Prérequis
+### Prerequisites
 
-- Node.js (version 18 ou supérieure)
+- Node.js (version 18 or higher)
 - MySQL 8
-- NestJS CLI : `npm install -g @nestjs/cli`
+- NestJS CLI: `npm install -g @nestjs/cli`
 
-### Étapes d'installation
+### Installation Steps
 
 ```bash
-# Cloner le projet
-git clone https://github.com/votre-utilisateur/daily-planner-api.git
+# Clone the project
+git clone https://github.com/your-username/daily-planner-api.git
 cd daily-planner-api
 
-# Installer les dépendances
+# Install dependencies
 npm install
 
-# Copier et modifier les variables d'environnement
+# Copy and modify environment variables
 cp .env.example .env
 
-# Lancer l'application
+# Start the application
 npm run start:dev
 ```
 
 ## Configuration
 
-### Variables d'environnement
+### Environment Variables
 
-Créez un fichier `.env` à la racine du projet :
+Create a `.env` file at the project root:
 
 ```env
-# Base de données
+# Database
 DB_HOST=localhost
 DB_PORT=3306
-DB_USERNAME=nomdutilisateur
-DB_PASSWORD=motdepasse
+DB_USERNAME=username
+DB_PASSWORD=password
 DB_NAME=daily_planner
 
-# Port de l'application
+# Application port
 PORT=3000
 ```
 
-## Documentation API
+## API Documentation
 
-Après démarrage, la documentation Swagger est disponible à :
+After startup, Swagger documentation is available at:
 
 ```
 http://localhost:3000/api
 ```
 
-Elle permet de tester tous les endpoints de l'API de façon interactive.
+It allows interactive testing of all API endpoints.
 
-## Scripts disponibles
+## Available Scripts
 
 ```bash
-# Développement
+# Development
 npm run start:dev
 
 # Production
@@ -112,44 +112,44 @@ npm run start:prod
 # Tests
 npm run test
 
-# Tests unitaires avec couverture
+# Unit tests with coverage
 npm run test:cov
 
-# Tests e2e
+# End-to-end tests
 npm run test:e2e
 
 # Linting
 npm run lint
 
-# Formatage du code
+# Code formatting
 npm run format
 ```
 
-## Fonctionnalités à venir
+## Upcoming Features
 
-- Notifications par e-mail ou push
-- Vue hebdomadaire du planning
-- Gestion multi-utilisateur avec rôles
-- Sauvegarde des préférences utilisateur (thème, langue, etc.)
+- Email or push notifications
+- Weekly schedule view
+- Multi-user management with roles
+- User preference storage (theme, language, etc.)
 
-## Contribution
+## Contributing
 
-Les contributions sont les bienvenues ! N'hésitez pas à :
+Contributions are welcome! Feel free to:
 
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Auteur
+## Author
 
 **Yann NGATEU**
 
-Projet réalisé dans le cadre d'un projet personnel d'apprentissage et de mise en pratique des architectures modernes côté backend.
+Project created as part of a personal learning project to practice modern backend architectures.
 
 ---
 
 <div align="center">
-  Fait avec ❤️ par Yann NGATEU
+  Made with ❤️ by Yann NGATEU
 </div>
